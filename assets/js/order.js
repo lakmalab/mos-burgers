@@ -51,20 +51,25 @@
             const menuContainer = document.getElementById('menuItems');
             menuContainer.innerHTML = '';
 
-            items.forEach(item => {
-                const menuItemDiv = document.createElement('div');
-                menuItemDiv.className = 'col-md-3 mb-3';
-                menuItemDiv.innerHTML = `
-                    <div class="card menu-item h-100" onclick="addToOrder('${item.name}', ${item.price})">
-                        <div class="card-body text-center">
-                            <img src="images/${item.image}" alt="${item.name}" class="mb-2">
-                            <h6 class="card-title">${item.name}</h6>
-                            <p class="card-text fw-bold text-primary">LKR ${item.price.toFixed(2)}</p>
-                        </div>
-                    </div>
-                `;
-                menuContainer.appendChild(menuItemDiv);
-            });
+           items.forEach(item => {
+    const menuItemDiv = document.createElement('div');
+    menuItemDiv.className = 'col-md-4 mb-3';
+    menuItemDiv.innerHTML = `
+        <div class="card menu-item h-100" onclick="addToOrder('${item.name}', ${item.price})">
+            <div class="card-body text-center">
+                <img src="images/${item.image}" alt="${item.name}" class="mb-2">
+                <h6 class="card-title">${item.name}</h6>
+                <p class="card-text fw-bold text-primary">LKR ${item.price.toFixed(2)}</p>
+                <div class="quantity-control d-flex align-items-center justify-content-center">
+                    <button class="btn btn-outline-secondary" onclick="changeQuantity('${item.name}', -1)">-</button>
+                    <span class="mx-2 text-light">2</span> <!-- Replace '2' with a dynamic quantity if needed -->
+                    <button class="btn btn-outline-secondary" onclick="changeQuantity('${item.name}', 1)">+</button>
+                </div>
+            </div>
+        </div>
+    `;
+    menuContainer.appendChild(menuItemDiv);
+});
         }
 
         // Filter menu items by category

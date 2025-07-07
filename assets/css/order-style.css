@@ -9,7 +9,23 @@ body {
         .navbar {
             height: 60px;
         }
-        
+.quantity-control {
+    background-color: #c2bebe; /* Light background */
+    border-radius: 20px;
+    margin-left: 80px;
+    padding: 5px;
+}
+
+.btn-outline-secondary {
+    border-radius: 50px;
+    border-color: #fafafa;
+    color: #f8f9fa;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #d76a1d;
+    color: white;
+}
         .main-container {
             height: calc(100vh - 60px);
             padding: 1rem;
